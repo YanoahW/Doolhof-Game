@@ -7,6 +7,6 @@ package doolhof.game;
  * Datum:
  * Versie:
  */
-public class Finish {
+public class Finish extends Item {
     
 }

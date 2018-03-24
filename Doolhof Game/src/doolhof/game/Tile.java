@@ -7,6 +7,6 @@ package doolhof.game;
  * Datum:
  * Versie:
  */
-public class Tile {
+public class Tile extends Item {
     
 }
