@@ -1,8 +1,11 @@
 package doolhof.game;
+
 /**
- *
+ * 
  * @author Yanoah Wiersma & Remon Turk
- * Klas: 3.6
+ * Groep: 3.6.2
+ * Datum:
+ * Versie:
  */
 public class Game {
     private Field field;
