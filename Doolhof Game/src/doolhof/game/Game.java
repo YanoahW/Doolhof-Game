@@ -14,7 +14,18 @@ package doolhof.game;
 public class Game {
     public static void main(String[] args) {
         System.out.println("doe is ff wat leuks");
+<<<<<<< HEAD
         System.out.println("niet hetzelfde");
+=======
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+        System.out.println("doe is ff wat leuks");
+>>>>>>> 4260fe6955dc1686b4d02074004cbbbf0b20c35c
     }
     
 
