@@ -7,15 +7,9 @@ package doolhof.game;
 
 /**
  *
- * @author yanoa
+ * @author Yanoah Wiersma & Remon Turk
+ * Klas: 3.6
  */
-public class DoolhofGame {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        System.out.println("hoi");
-    }
-    
+public class Game {
+    System.out.println("doe is ff wat leuks");
 }
