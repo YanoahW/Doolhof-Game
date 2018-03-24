@@ -12,9 +12,9 @@ package doolhof.game;
  * Klas: 3.6
  */
 public class Game {
-<<<<<<< HEAD:Doolhof Game/src/doolhof/game/Game.java
-    System.out.println("doe is ff wat leuks");
-=======
+    public static void main(String[] args) {
+        System.out.println("doe is ff wat leuks");
+    }
     
->>>>>>> 97462a61d98a49cc1a3392200df0faa7987754dd:Doolhof Game/src/doolhof/game/Game.java
+
 }
