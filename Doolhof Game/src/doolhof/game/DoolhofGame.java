@@ -7,8 +7,8 @@ package doolhof.game;
 
 /**
  *
- * @author yanoa
+ * @author Remon
  */
-public class Player {
+public class DoolhofGame {
     
 }
