@@ -1,5 +1,7 @@
 package doolhof.game;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Yanoah Wiersma & Remon Turk
@@ -8,5 +10,15 @@ package doolhof.game;
  * Versie:
  */
 public class Field {
+    private int row;
+    private int column;
+    private int[][] gridGame = new int[row][column];
+    private Player player;
+    private ArrayList<Tile> tiles = new ArrayList<Tile>();
+    
+    public Field(ArrayList<Tile> tiles)
+    {
+        this.tiles =  tiles;
+    }
     
 }
