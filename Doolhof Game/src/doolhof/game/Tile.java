@@ -1,5 +1,7 @@
 package doolhof.game;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Yanoah Wiersma & Remon Turk
@@ -7,6 +9,15 @@ package doolhof.game;
  * Datum:
  * Versie:
  */
-public class Tile extends Item {
+public class Tile {
+    private Item item;
+    
+    public Tile(Item item)
+    {
+        this.item = item;
+    }
+    
+    
+    
     
 }
