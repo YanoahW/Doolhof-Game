@@ -8,5 +8,9 @@ package doolhof.game;
  * Versie:
  */
 public class Player {
+    private Key key = new Key();
+    private int posX;
+    private int posY;
+    
     
 }

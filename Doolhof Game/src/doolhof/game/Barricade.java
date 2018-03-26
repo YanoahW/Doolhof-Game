@@ -7,6 +7,6 @@ package doolhof.game;
  * Datum:
  * Versie:
  */
-public class Barricade {
+public class Barricade extends Item {
     
 }

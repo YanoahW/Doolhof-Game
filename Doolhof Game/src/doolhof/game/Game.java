@@ -25,6 +25,10 @@ public class Game {
         this.field = field;
     }
     
+    public void createField(int[][] gridGame)
+    {
+        
+    }
     
 
 }
