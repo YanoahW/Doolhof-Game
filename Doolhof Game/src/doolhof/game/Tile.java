@@ -17,7 +17,18 @@ public class Tile {
         this.item = item;
     }
     
-    
+    public boolean isEmpty()
+    {
+        boolean result;
+        
+        if (item == null) {
+            result = true;
+        } else {
+            result = false;
+        }
+        
+        return result;
+    }
     
     
 }
