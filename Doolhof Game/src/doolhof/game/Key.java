@@ -8,5 +8,18 @@ package doolhof.game;
  * Versie:
  */
 public class Key extends Item {
+    private int pincode;
+    
+    public Key(int pincode){
+        this.pincode = pincode;
+    }
+    
+    public int getPincode(){
+        return this.pincode;
+    }
+    
+    public void setPincode(int pincode){
+        this.pincode = pincode;
+    }
     
 }

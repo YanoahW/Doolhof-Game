@@ -10,7 +10,7 @@ package doolhof.game;
 public class DoolhofGame {
     public static void main (String[] args)
     {
-        
+        System.out.println("Het werkt");
     }
     
 }
