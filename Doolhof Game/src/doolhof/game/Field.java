@@ -11,16 +11,15 @@ import java.util.ArrayList;
  */
 public class Field {
     private Player player;
-    private int row;
-    private int column;
     private Tile[][] gridGame;
     
     public Field(Tile[][] tiles)
     {
         this.gridGame = tiles;
-        int row = 10;
-        int column = 10;
+        
     }
+    
+    
     
     
 }
