@@ -9,10 +9,12 @@ package doolhof.game;
  */
 public class Game {
     private Field field;
+    private boolean gameOver;
     
     public Game(Field field)
     {
         this.field = field;
+        gameOver = false;
     }
     
     public Field getField()
