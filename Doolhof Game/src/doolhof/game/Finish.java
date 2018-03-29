@@ -9,4 +9,8 @@ package doolhof.game;
  */
 public class Finish extends Item {
     
+    public Finish(){
+        
+    }
+    
 }

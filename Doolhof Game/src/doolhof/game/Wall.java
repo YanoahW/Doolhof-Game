@@ -9,4 +9,7 @@ package doolhof.game;
  */
 public class Wall extends Item {
     
+    public Wall(){
+        
+    }
 }
