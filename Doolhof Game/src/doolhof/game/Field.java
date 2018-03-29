@@ -20,11 +20,22 @@ public class Field {
         this.rows = rows;
         this.columns = columns;
         this.gridGame = new Tile[rows][columns];
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                this.gridGame[i][j] = new Tile(null);
+            }
+        }
     }
     
-    public void Fill2DArray()
+    public void setPlayer(Player player) 
     {
-        
+        this.player = player;
+    }
+    
+    public void setFieldItem(int row, int column, Item item)
+    {
+        this.gridGame[row][column].setItem(item);
     }
     
     

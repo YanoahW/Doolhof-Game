@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Barricade.java</file>
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Game.java</file>
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Tile.java</file>
@@ -13,6 +14,19 @@
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Player.java</file>
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Finish.java</file>
             <file>file:/C:/Users/yanoa/OneDrive/Documenten/School/Haagse%20Hogeschool/01%20Jaar%201/03%20Kwartaal%203/Project/Github/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Field.java</file>
+=======
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Tile.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Key.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Wall.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Barricade.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/GUI.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Field.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/DoolhofGame.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Player.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Finish.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Item.java</file>
+            <file>file:/D:/Users/Remon/Library/New%20folder/GitHub/Doolhof-Game/Doolhof%20Game/src/doolhof/game/Game.java</file>
+>>>>>>> 2549e678adfbcfc64c949067a320815f02c16e75
         </group>
     </open-files>
 </project-private>

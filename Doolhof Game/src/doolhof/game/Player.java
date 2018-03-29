@@ -14,10 +14,10 @@ public class Player{
     private int posX;
     private int posY;
     
-    public Player()
+    public Player(int posX, int posY)
     {
-        int posX = 0;
-        int posY = 0;
+        this.posX = posX;
+        this.posY = posY;
     }
    
 }
