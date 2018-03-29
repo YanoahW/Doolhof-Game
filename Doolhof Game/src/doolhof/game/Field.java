@@ -11,11 +11,19 @@ import java.util.ArrayList;
  */
 public class Field {
     private Player player;
-    private Tile[][] gridGame;
+    private final Tile[][] gridGame;
+    private final int rows;
+    private final int columns;
     
-    public Field(Tile[][] tiles)
+    public Field(int rows, int columns)
     {
-        this.gridGame = tiles;
+        this.rows = rows;
+        this.columns = columns;
+        this.gridGame = new Tile[rows][columns];
+    }
+    
+    public void Fill2DArray()
+    {
         
     }
     
