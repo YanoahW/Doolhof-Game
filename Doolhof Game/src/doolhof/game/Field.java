@@ -17,13 +17,15 @@ public class Field {
     private Tile[][] gridGame;
     private int rows;
     private int columns;
+    private int cellsize;
     
-    public Field(int rows, int columns) throws IOException
+    public Field(int rows, int columns, int cellsize) throws IOException
     {
-        this.rows = rows ;
+        this.rows = rows;
         this.columns = columns;
         this.gridGame = new Tile[rows][columns];
         this.player = null;
+        this.cellsize = cellsize;
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -37,6 +39,22 @@ public class Field {
         this.player = player;
     }
     
+    public int getCellSize(){
+        return cellsize;
+    }
+    
+    public int getRows(){
+        return rows;
+    }
+    
+    public int getColumns(){
+        return columns;
+    }
+    
+    public Tile[][] getGridGame(){
+        return gridGame;
+    }
+    
     public void setFieldItem(int row, int column, Item item)
     {
         this.gridGame[row][column].setItem(item);
@@ -45,11 +63,6 @@ public class Field {
     public void setUpField(String filename) throws FileNotFoundException, IOException
     {
       BufferedReader bf = new BufferedReader(new FileReader(filename));
-      String[] firstLine = bf.readLine().split(" ");
-      
-      rows = Integer.parseInt(firstLine[0]);
-      columns = Integer.parseInt(firstLine[1]);
-      
       for (int i = 0; i < rows; i++) {
           String[] nextLine = bf.readLine().split(" ");
           
@@ -75,12 +88,8 @@ public class Field {
               } else if (nextLine[j].equals("PPPP")) {
                   Player player = new Player(i, j);
                   this.setPlayer(player);
-              } 
-          }
-      }
+            }
+        }
+    }  
     }
-    
-    
-    
-    
 }

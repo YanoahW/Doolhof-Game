@@ -1,7 +1,5 @@
 package doolhof.game;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Yanoah Wiersma & Remon Turk
@@ -24,6 +22,9 @@ public class Tile {
         } else {
             return false;
         }
+    }
+    public Item getItem(){
+        return item;
     }
     
     public void setItem(Item item) 

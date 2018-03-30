@@ -13,9 +13,12 @@ public class DoolhofGame {
     public static void main (String[] args) throws IOException
     {
         Game game = new Game();
-        Field field = new Field(10,10);
+        Field field = new Field(10,10,90);
         field.setUpField("src/doolhof/game/data/standardField.txt");
         game.setField(field);
+        GUI gui = new GUI(game);
+        gui.createFrame();
+        
     }
     
 }
