@@ -23,7 +23,6 @@ public class Barricade extends Item {
     }
     
     public boolean checkKey(Key key){
-        boolean result;
         if(this.lock == key.getPincode()){
             return true;
         }
