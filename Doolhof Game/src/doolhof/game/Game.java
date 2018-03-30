@@ -41,22 +41,21 @@ public class Game extends JComponent {
         final int columns = field.getColumns();
         Tile[][] tiles = field.getGridGame();
         try{
-            for(int i = 0; i < rows; i++){
-                for(int j = 0; j < columns; j++){
-                    if(tiles[i][j].getItem() instanceof Wall){
-                        paintWall(g, i, j, size);
-                    } else if(tiles[i][j].getItem() instanceof Key){
-                        paintKey(g, ((Key) tiles[i][j].getItem()), i, j, size);
-                    } else if(tiles[i][j].getItem() instanceof Barricade){
-                        paintBarricade(g, ((Barricade) tiles[i][j].getItem()), i, j, size);
-                    } else if(tiles[i][j].getItem() instanceof Finish){
-                        paintFinish(g, i, j, size);
+            for(int x = 0; x < rows; x++){
+                for(int y = 0; y < columns; y++){
+                    if(tiles[x][y].getItem() instanceof Wall){
+                        paintWall(g, x, y, size);
+                    } else if(tiles[x][y].getItem() instanceof Key){
+                        paintKey(g, ((Key) tiles[x][y].getItem()), x, y, size);
+                    } else if(tiles[x][y].getItem() instanceof Barricade){
+                        paintBarricade(g, ((Barricade) tiles[x][y].getItem()), x, y, size);
+                    } else if(tiles[x][y].getItem() instanceof Finish){
+                        paintFinish(g, x, y, size);
                     } else{
-                    g.setColor(Color.LIGHT_GRAY);
-                    g.fillRect(j * size, i * size, size, size);
+                        paintEmpty(g, x, y, size);
                     }
                 g.setColor(Color.BLACK);
-                g.drawRect(j * size, i * size, size, size);
+                g.drawRect(y * size, x * size, size, size);
                 }
             }
         paintPlayer(g, field.getPlayer(), field.getPlayer().getPosX(), field.getPlayer().getPosY(), size);
@@ -65,6 +64,11 @@ public class Game extends JComponent {
         }
     }
 
+    @Override
+    public void paintComponent(Graphics g){
+        paintField(g);
+    }
+    
     public void paintWall(Graphics g, int x, int y, int size) throws IOException{
         Image image;
         image = ImageIO.read(new File("src/doolhof/game/data/Wall.png"));
@@ -88,7 +92,7 @@ public class Game extends JComponent {
     public void paintPlayer(Graphics g, Player player, int x, int y, int size) throws IOException{
         Image image;
         image = ImageIO.read(new File("src/doolhof/game/data/Player.png"));
-        g.drawImage(image, (y * size),(x * size), this);
+        g.drawImage(image, (x * size),(y * size), this);
         g.setColor(Color.BLACK);
         g.drawRect(field.getPlayer().getPosX() * size, field.getPlayer().getPosY() * size, size, size);
     }
@@ -98,8 +102,8 @@ public class Game extends JComponent {
         g.fillRect(y * size, x * size, size, size);
     }
     
-    @Override
-    public void paintComponent(Graphics g){
-        paintField(g);
+    public void paintEmpty(Graphics g, int x, int y, int size){
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(y * size, x * size, size, size);
     }
 }
