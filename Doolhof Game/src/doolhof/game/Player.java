@@ -1,8 +1,5 @@
 package doolhof.game;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 /**
  * 
  * @author Yanoah Wiersma & Remon Turk
@@ -27,6 +24,14 @@ public class Player{
     
     public void setKey(Key key){
         this.key = key;
+    }
+    
+    public int getPosX(){
+        return posX;
+    }
+    
+    public int getPosY(){
+        return posY;
     }
     
     

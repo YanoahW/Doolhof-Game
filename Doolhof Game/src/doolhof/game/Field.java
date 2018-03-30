@@ -55,6 +55,10 @@ public class Field {
         return gridGame;
     }
     
+    public Player getPlayer(){
+        return player;
+    }
+    
     public void setFieldItem(int row, int column, Item item)
     {
         this.gridGame[row][column].setItem(item);
