@@ -7,6 +7,6 @@ package doolhof.game;
  * Datum:
  * Versie:
  */
-public class Item {
+public abstract class Item {
     
 }

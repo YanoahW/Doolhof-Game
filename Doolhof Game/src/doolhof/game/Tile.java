@@ -18,16 +18,12 @@ public class Tile {
     }
     
     public boolean isEmpty()
-    {
-        boolean result;
-        
+    {       
         if (item == null) {
-            result = true;
+            return true;
         } else {
-            result = false;
+            return false;
         }
-        
-        return result;
     }
     
     public void setItem(Item item) 
