@@ -12,9 +12,7 @@ import java.io.IOException;
 public class DoolhofGame {
     public static void main (String[] args) throws IOException
     {
-        System.out.println(100 - 030);
-        Game game = new Game("src/doolhof/game/data/standardField.txt");
-        
+        Game game = new Game("src/doolhof/game/data/standardField.txt"); 
     }
     
 }
