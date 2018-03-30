@@ -1,7 +1,5 @@
 package doolhof.game;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Yanoah Wiersma & Remon Turk
@@ -18,16 +16,15 @@ public class Tile {
     }
     
     public boolean isEmpty()
-    {
-        boolean result;
-        
+    {       
         if (item == null) {
-            result = true;
+            return true;
         } else {
-            result = false;
+            return false;
         }
-        
-        return result;
+    }
+    public Item getItem(){
+        return item;
     }
     
     public void setItem(Item item) 

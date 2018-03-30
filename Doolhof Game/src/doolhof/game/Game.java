@@ -1,9 +1,8 @@
 package doolhof.game;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JComponent;
 
 /**
  * 
@@ -12,13 +11,13 @@ import java.io.IOException;
  * Datum:
  * Versie:
  */
-public class Game {
+public class Game extends JComponent {
     private Field field;
     private boolean gameOver;
     
-    public Game(String filename) throws IOException
+    public Game()
     {
-        this.field = createField(filename);
+        this.field = null;
         gameOver = false;
     }
     
@@ -32,47 +31,42 @@ public class Game {
         this.field = field;
     }
     
-    public Field createField(String filename) throws FileNotFoundException, IOException
-    {
-      BufferedReader br = new BufferedReader(new FileReader(filename));
-      String[] firstLine = br.readLine().split(" ");
-      
-      int rows = Integer.parseInt(firstLine[0]);
-      int columns = Integer.parseInt(firstLine[1]);
-      
-      Field newField = new Field(rows, columns);
-      
-      for (int i = 0; i < rows; i++) {
-          String[] nextLine = br.readLine().split(" ");
-          
-          for (int j = 0; j < columns; j++) {
-              if (nextLine[j].equals("WWWW")) {
-                  newField.setFieldItem(i, j, new Wall());
-              } else if (nextLine[j].equals("FFFF")) {
-                  newField.setFieldItem(i, j, new Finish());
-              } else if (nextLine[j].startsWith("K")) {
-                  String value = nextLine[j].substring(1); 
-                  while (value.startsWith("0")) {
-                      value = value.substring(1);
-                  }
-                  Key key = new Key(Integer.parseInt(value));
-                  newField.setFieldItem(i, j, key);
-              } else if (nextLine[j].startsWith("B")) {
-                  String value = nextLine[j].substring(1);
-                  while (value.startsWith("0")) {
-                      value = value.substring(1);
-                  }
-                  Barricade barricade = new Barricade(Integer.parseInt(value));
-                  newField.setFieldItem(i, j, barricade);
-              } else if (nextLine[j].equals("PPPP")) {
-                  Player player = new Player(i, j);
-                  newField.setPlayer(player);
-              } 
-          }
-      }
-      
-      return newField;
+    public void paintField(Graphics g){
+        final int size = field.getCellSize();
+        final int rows = field.getRows();
+        final int columns = field.getColumns();
+        Tile[][] tiles = field.getGridGame();
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                if(tiles[i][j].getItem() instanceof Wall){
+                    g.setColor(Color.BLACK);
+                    g.fillRect(j * size, i * size, size, size);
+                }
+                else if(tiles[i][j].getItem() instanceof Key){
+                    g.setColor(Color.GREEN);
+                    g.fillRect(j * size, i * size, size, size);
+                }
+                else if(tiles[i][j].getItem() instanceof Barricade){
+                    g.setColor(Color.RED);
+                    g.fillRect(j * size, i * size, size, size);
+                }
+                else if(tiles[i][j].getItem() instanceof Finish){
+                    g.setColor(Color.BLUE);
+                    g.fillRect(j * size, i * size, size, size);
+                    
+                }
+                else{
+                g.setColor(Color.LIGHT_GRAY);
+                g.fillRect(j * size, i * size, size, size);
+                }
+                    g.setColor(Color.BLACK);
+                    g.drawRect(j * size, i * size, size, size);
+            }
+        }
     }
     
-
+    @Override
+    public void paintComponent(Graphics g){
+        paintField(g);
+    }
 }
