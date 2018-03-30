@@ -63,7 +63,7 @@ public class Game extends JComponent {
             System.out.println("File not found");
         }
     }
-
+    
     @Override
     public void paintComponent(Graphics g){
         paintField(g);
