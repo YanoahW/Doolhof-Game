@@ -34,8 +34,8 @@ public class Game {
     
     public Field createField(String filename) throws FileNotFoundException, IOException
     {
-      BufferedReader bf = new BufferedReader(new FileReader(filename));
-      String[] firstLine = bf.readLine().split(" ");
+      BufferedReader br = new BufferedReader(new FileReader(filename));
+      String[] firstLine = br.readLine().split(" ");
       
       int rows = Integer.parseInt(firstLine[0]);
       int columns = Integer.parseInt(firstLine[1]);
@@ -43,7 +43,7 @@ public class Game {
       Field newField = new Field(rows, columns);
       
       for (int i = 0; i < rows; i++) {
-          String[] nextLine = bf.readLine().split(" ");
+          String[] nextLine = br.readLine().split(" ");
           
           for (int j = 0; j < columns; j++) {
               if (nextLine[j].equals("WWWW")) {
