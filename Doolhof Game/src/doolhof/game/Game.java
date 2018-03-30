@@ -99,82 +99,16 @@ public class Game extends JComponent {
     
     public void paintKey(Graphics g, Key key, int x, int y, int size) throws IOException{
         Image image;
-        if(key.getPincode() == 100){
-            image = ImageIO.read(new File("src/doolhof/game/data/K100.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(key.getPincode() == 200){
-            image = ImageIO.read(new File("src/doolhof/game/data/K200.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(key.getPincode() == 300){
-            image = ImageIO.read(new File("src/doolhof/game/data/K300.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-            }
+        String pincode = "src/doolhof/game/data/K" + Integer.toString(key.getPincode()) + ".png";
+        image = ImageIO.read(new File(pincode));
+        g.drawImage(image, (y * size),(x * size), this);
     }
     
     public void paintBarricade(Graphics g, Barricade barricade, int x, int y, int size) throws IOException{
         Image image;
-        if(barricade.getLock() == 100){
-            image = ImageIO.read(new File("src/doolhof/game/data/B100.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 200){
-            image = ImageIO.read(new File("src/doolhof/game/data/B200.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 300){
-            image = ImageIO.read(new File("src/doolhof/game/data/B300.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 30){
-            image = ImageIO.read(new File("src/doolhof/game/data/B030.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 90){
-            image = ImageIO.read(new File("src/doolhof/game/data/B090.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 190){
-            image = ImageIO.read(new File("src/doolhof/game/data/B190.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 70){
-            image = ImageIO.read(new File("src/doolhof/game/data/B070.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 40){
-            image = ImageIO.read(new File("src/doolhof/game/data/B040.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 900){
-            image = ImageIO.read(new File("src/doolhof/game/data/B900.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 50){
-            image = ImageIO.read(new File("src/doolhof/game/data/B050.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 80){
-            image = ImageIO.read(new File("src/doolhof/game/data/B080.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 220){
-            image = ImageIO.read(new File("src/doolhof/game/data/B220.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 360){
-            image = ImageIO.read(new File("src/doolhof/game/data/B360.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 500){
-            image = ImageIO.read(new File("src/doolhof/game/data/B500.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
-        else if(barricade.getLock() == 150){
-            image = ImageIO.read(new File("src/doolhof/game/data/B150.png"));
-            g.drawImage(image, (y * size),(x * size), this);
-        }
+        String lock = "src/doolhof/game/data/B" + Integer.toString(barricade.getLock()) + ".png";
+        image = ImageIO.read(new File(lock));
+        g.drawImage(image, (y * size),(x * size), this);
     }
     
     public void paintPlayer(Graphics g, Player player, int x, int y, int size) throws IOException{
