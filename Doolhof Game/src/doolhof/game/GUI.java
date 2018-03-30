@@ -1,7 +1,6 @@
 package doolhof.game;
 
 import java.awt.Dimension;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -9,7 +8,7 @@ import javax.swing.JPanel;
  *
  * @author Remon
  */
-public class GUI extends JComponent{
+public class GUI {
     private Game game;
     
     public GUI(Game game){
