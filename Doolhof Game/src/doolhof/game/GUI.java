@@ -1,9 +1,7 @@
 package doolhof.game;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -24,14 +22,17 @@ public class GUI {
         frame.setSize(1000,1000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.add(createGamePanel());
+        addGamePanel(frame);
         frame.setVisible(true);
     }
     
-    public JPanel createGamePanel(){
+    public void addGamePanel(JFrame frame){
         JPanel gamepanel = new JPanel();
-        game.setPreferredSize(new Dimension(game.getField().getRows() * game.getField().getCellSize() + 1, game.getField().getColumns() * game.getField().getCellSize() + 1));
+        int cellsize = game.getField().getCellSize() + 1;
+        int rows = game.getField().getRows();
+        int columns = game.getField().getColumns();
+        game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
         gamepanel.add(game);
-        return gamepanel;
+        frame.add(gamepanel);
     }
 }
