@@ -39,58 +39,32 @@ public class Game extends JComponent {
         final int size = field.getCellSize();
         final int rows = field.getRows();
         final int columns = field.getColumns();
-        
         Tile[][] tiles = field.getGridGame();
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < columns; j++){
-                if(tiles[i][j].getItem() instanceof Wall){
-                    try{
-                    paintWall(g, i, j, size);
-                    } catch(IOException e){
-                        System.out.println("File not found");
-                    }
-                }
-                
-                else if(tiles[i][j].getItem() instanceof Key){
-                    Key key = (Key) tiles[i][j].getItem();
-                    try{
-                    paintKey(g, key, i, j, size);
-                    } catch(IOException e){
-                        System.out.println("File not found");
-                    }
-                }
-                
-                else if(tiles[i][j].getItem() instanceof Barricade){
-                    Barricade barricade = (Barricade) tiles[i][j].getItem();
-                    try{
-                    paintBarricade(g, barricade, i, j, size);
-                    } catch(IOException e){
-                        System.out.println("File not found");
-                    }
-                }
-                
-                else if(tiles[i][j].getItem() instanceof Finish){
-                    paintFinish(g, i, j, size);
-                }
-                
-                else{
-                g.setColor(Color.LIGHT_GRAY);
-                g.fillRect(j * size, i * size, size, size);
-                }
-                
-            g.setColor(Color.BLACK);
-            g.drawRect(j * size, i * size, size, size);
-            }
-        }
-        
         try{
+            for(int i = 0; i < rows; i++){
+                for(int j = 0; j < columns; j++){
+                    if(tiles[i][j].getItem() instanceof Wall){
+                        paintWall(g, i, j, size);
+                    } else if(tiles[i][j].getItem() instanceof Key){
+                        paintKey(g, ((Key) tiles[i][j].getItem()), i, j, size);
+                    } else if(tiles[i][j].getItem() instanceof Barricade){
+                        paintBarricade(g, ((Barricade) tiles[i][j].getItem()), i, j, size);
+                    } else if(tiles[i][j].getItem() instanceof Finish){
+                        paintFinish(g, i, j, size);
+                    } else{
+                    g.setColor(Color.LIGHT_GRAY);
+                    g.fillRect(j * size, i * size, size, size);
+                    }
+                g.setColor(Color.BLACK);
+                g.drawRect(j * size, i * size, size, size);
+                }
+            }
         paintPlayer(g, field.getPlayer(), field.getPlayer().getPosX(), field.getPlayer().getPosY(), size);
         } catch(IOException e){
             System.out.println("File not found");
         }
-        
     }
-    
+
     public void paintWall(Graphics g, int x, int y, int size) throws IOException{
         Image image;
         image = ImageIO.read(new File("src/doolhof/game/data/Wall.png"));

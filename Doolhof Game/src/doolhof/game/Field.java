@@ -34,15 +34,19 @@ public class Field {
         }
     }
     
+    public Player getPlayer(){
+        return player;
+    }
+    
     public void setPlayer(Player player) 
     {
         this.player = player;
     }
     
-    public int getCellSize(){
-        return cellsize;
+    public Tile[][] getGridGame(){
+        return gridGame;
     }
-    
+     
     public int getRows(){
         return rows;
     }
@@ -51,49 +55,42 @@ public class Field {
         return columns;
     }
     
-    public Tile[][] getGridGame(){
-        return gridGame;
+    public int getCellSize(){
+        return cellsize;
     }
     
-    public Player getPlayer(){
-        return player;
-    }
-    
-    public void setFieldItem(int row, int column, Item item)
-    {
+    public void setFieldItem(int row, int column, Item item){
         this.gridGame[row][column].setItem(item);
     }
     
-    public void setUpField(String filename) throws FileNotFoundException, IOException
-    {
-      BufferedReader bf = new BufferedReader(new FileReader(filename));
-      for (int i = 0; i < rows; i++) {
-          String[] nextLine = bf.readLine().split(" ");
-          
-          for (int j = 0; j < columns; j++) {
-              if (nextLine[j].equals("WWWW")) {
-                  this.setFieldItem(i, j, new Wall());
-              } else if (nextLine[j].equals("FFFF")) {
-                  this.setFieldItem(i, j, new Finish());
-              } else if (nextLine[j].startsWith("K")) {
-                  String value = nextLine[j].substring(1); 
-                  while (value.startsWith("0")) {
-                      value = value.substring(1);
-                  }
-                  Key key = new Key(Integer.parseInt(value));
-                  this.setFieldItem(i, j, key);
-              } else if (nextLine[j].startsWith("B")) {
-                  String value = nextLine[j].substring(1);
-                  while (value.startsWith("0")) {
-                      value = value.substring(1);
-                  }
-                  Barricade barricade = new Barricade(Integer.parseInt(value));
-                  this.setFieldItem(i, j, barricade);
-              } else if (nextLine[j].equals("PPPP")) {
-                  Player player = new Player(i, j);
-                  this.setPlayer(player);
+    public void setUpField(String filename) throws FileNotFoundException, IOException{
+        BufferedReader bf = new BufferedReader(new FileReader(filename));
+        for (int i = 0; i < rows; i++) {
+            String[] nextLine = bf.readLine().split(" ");
+            for (int j = 0; j < columns; j++) {
+                if (nextLine[j].equals("WWWW")) {
+                    this.setFieldItem(i, j, new Wall());
+                } else if (nextLine[j].equals("FFFF")) {
+                    this.setFieldItem(i, j, new Finish());
+                } else if (nextLine[j].startsWith("K")) {
+                    String value = nextLine[j].substring(1); 
+                    while (value.startsWith("0")) {
+                        value = value.substring(1);
+                    }
+                    Key key = new Key(Integer.parseInt(value));
+                    this.setFieldItem(i, j, key);
+                } else if (nextLine[j].startsWith("B")) {
+                    String value = nextLine[j].substring(1);
+                    while (value.startsWith("0")) {
+                        value = value.substring(1);
+                    }
+                    Barricade barricade = new Barricade(Integer.parseInt(value));
+                    this.setFieldItem(i, j, barricade);
+                } else if (nextLine[j].equals("PPPP")) {
+                    Player player = new Player(i, j);
+                    this.setPlayer(player);
+                }
             }
-        }
-    }  
+        }  
     }
 }
