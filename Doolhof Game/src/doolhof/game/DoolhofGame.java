@@ -16,9 +16,9 @@ public class DoolhofGame {
         Field field = new Field(10,10,90);
         field.setUpField("src/doolhof/game/data/standardField.txt");
         game.setField(field);
-        GUI gui = new GUI(game);
-        gui.createFrame();
-        
+        Player player = field.getPlayer();
+        player.setField(game.getField());
+        GUI gui = new GUI(game);  
     }
     
 }

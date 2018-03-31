@@ -35,6 +35,10 @@ public class Game extends JComponent {
         this.field = field;
     }
     
+    public void updateField(){
+        repaint();
+    }
+    
     public void paintField(Graphics g){
         final int size = field.getCellSize();
         final int rows = field.getRows();
@@ -72,27 +76,27 @@ public class Game extends JComponent {
     public void paintWall(Graphics g, int x, int y, int size) throws IOException{
         Image image;
         image = ImageIO.read(new File("src/doolhof/game/data/Wall.png"));
-        g.drawImage(image, (y * size),(x * size), this);
+        g.drawImage(image, (y * size),(x * size), null);
     }
     
     public void paintKey(Graphics g, Key key, int x, int y, int size) throws IOException{
         Image image;
         String pincode = "src/doolhof/game/data/K" + Integer.toString(key.getPincode()) + ".png";
         image = ImageIO.read(new File(pincode));
-        g.drawImage(image, (y * size),(x * size), this);
+        g.drawImage(image, (y * size),(x * size), null);
     }
     
     public void paintBarricade(Graphics g, Barricade barricade, int x, int y, int size) throws IOException{
         Image image;
         String lock = "src/doolhof/game/data/B" + Integer.toString(barricade.getLock()) + ".png";
         image = ImageIO.read(new File(lock));
-        g.drawImage(image, (y * size),(x * size), this);
+        g.drawImage(image, (y * size),(x * size), null);
     }
     
     public void paintPlayer(Graphics g, Player player, int x, int y, int size) throws IOException{
         Image image;
         image = ImageIO.read(new File("src/doolhof/game/data/Player.png"));
-        g.drawImage(image, (x * size),(y * size), this);
+        g.drawImage(image, (x * size),(y * size), null);
         g.setColor(Color.BLACK);
         g.drawRect(field.getPlayer().getPosX() * size, field.getPlayer().getPosY() * size, size, size);
     }

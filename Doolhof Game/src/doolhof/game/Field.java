@@ -59,6 +59,27 @@ public class Field {
         return cellsize;
     }
     
+    public boolean checkCollision(int x, int y){
+        if(gridGame[y][x].getItem() instanceof Wall){
+            return true;
+        } else if(gridGame[y][x].getItem() instanceof Key){
+            player.pickUpKey((Key) gridGame[y][x].getItem());
+            this.setFieldItem(y, x, null);
+            return false;
+        } else if(gridGame[y][x].getItem() instanceof Barricade){
+            Barricade barricade = (Barricade) gridGame[y][x].getItem();
+            if(barricade.checkKey(player.getKey())){
+                this.setFieldItem(y, x, null);
+                return false;
+            } else{
+                return true;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    
     public void setFieldItem(int row, int column, Item item){
         this.gridGame[row][column].setItem(item);
     }
@@ -87,7 +108,7 @@ public class Field {
                     Barricade barricade = new Barricade(Integer.parseInt(value));
                     this.setFieldItem(i, j, barricade);
                 } else if (nextLine[j].equals("PPPP")) {
-                    Player player = new Player(i, j);
+                    Player player = new Player(j, i);
                     this.setPlayer(player);
                 }
             }
