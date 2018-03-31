@@ -6,7 +6,7 @@ import java.io.IOException;
  * 
  * @author Yanoah Wiersma & Remon Turk
  * Groep: 3.6.2
- * Datum:
+ * Datum: 27
  * Versie:
  */
 public class DoolhofGame {
@@ -18,7 +18,8 @@ public class DoolhofGame {
         game.setField(field);
         Player player = field.getPlayer();
         player.setField(game.getField());
-        GUI gui = new GUI(game);  
+        GUI gui = new GUI(game); 
+        
     }
     
 }
