@@ -41,9 +41,11 @@ public class Player{
     }
     
     public void move(int x, int y){
-        if(!field.checkCollision((posX + x), (posY + y))){
-        posX += x;
-        posY += y;
+        if(!field.checkFinish((posX), (posY))){
+            if(!field.checkCollision((posX + x), (posY + y))){
+            posX += x;
+            posY += y;
+            }
         }
     }
 }
