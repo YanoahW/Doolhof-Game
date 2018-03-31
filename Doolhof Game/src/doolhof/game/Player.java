@@ -34,6 +34,12 @@ public class Player{
         return posY;
     }
     
+    public void move(int x, int y)
+    {
+        posX += x;
+        posY += y;
+    }
+    
     
    
 }
