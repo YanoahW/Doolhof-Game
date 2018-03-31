@@ -35,6 +35,10 @@ public class Game extends JComponent {
         this.field = field;
     }
     
+    public void updateField(){
+        repaint();
+    }
+    
     public void paintField(Graphics g){
         final int size = field.getCellSize();
         final int rows = field.getRows();
