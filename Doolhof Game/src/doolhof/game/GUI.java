@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,10 +14,10 @@ import java.awt.event.KeyListener;
  */
 public class GUI {
     private Game game;
+    private JFrame frame;
     
     public GUI(Game game){
         this.game = game;
-        JFrame frame = new JFrame();
         frame.setTitle("Doolhof Game");
         frame.setSize(1000,1000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,6 +36,13 @@ public class GUI {
         game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
         gamepanel.add(game);
         frame.add(gamepanel);
+    }
+    
+    public void addEndMessage(JFrame frame){
+        if (game.over()){
+            JLabel message = new JLabel("== YOU WON ==");
+            JOptionPane.showMessageDialog(frame, message);
+            }
     }
     
     class MoveListener implements KeyListener{

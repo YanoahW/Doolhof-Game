@@ -18,6 +18,7 @@ public class Field {
     private int rows;
     private int columns;
     private int cellsize;
+    private boolean finishFound;
     
     public Field(int rows, int columns, int cellsize) throws IOException
     {
@@ -59,6 +60,10 @@ public class Field {
         return cellsize;
     }
     
+    public boolean getFinishFound(){
+        return finishFound;
+    }
+    
     public boolean checkCollision(int x, int y){
         if(gridGame[y][x].getItem() instanceof Wall){
             return true;
@@ -68,23 +73,34 @@ public class Field {
             return false;
         } else if(gridGame[y][x].getItem() instanceof Barricade){
             Barricade barricade = (Barricade) gridGame[y][x].getItem();
-            if(barricade.checkKey(player.getKey())){
-                this.setFieldItem(y, x, null);
-                return false;
-            } else{
-                return true;
+            if(player.getKey() != null){
+                if(barricade.checkKey(player.getKey())){
+                    this.setFieldItem(y, x, null);
+                    return false;
+                } else{
+                    return true;
+                }
             }
-        }
+            return true;
+        } 
         else{
             return false;
         }
+    }
+    
+    public boolean checkFinish(int x, int y){
+        if(gridGame[y][x].getItem() instanceof Finish){
+            finishFound = true;
+            return true;
+        }
+        return false;
     }
     
     public void setFieldItem(int row, int column, Item item){
         this.gridGame[row][column].setItem(item);
     }
     
-    public void setUpField(String filename) throws FileNotFoundException, IOException{
+    public void setUpField(String filename) throws IOException{
         BufferedReader bf = new BufferedReader(new FileReader(filename));
         for (int i = 0; i < rows; i++) {
             String[] nextLine = bf.readLine().split(" ");

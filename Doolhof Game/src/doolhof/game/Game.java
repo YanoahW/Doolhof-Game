@@ -17,12 +17,10 @@ import javax.swing.JComponent;
  */
 public class Game extends JComponent {
     private Field field;
-    private boolean gameOver;
     
     public Game()
     {
         this.field = null;
-        gameOver = false;
     }
     
     public Field getField()
@@ -109,5 +107,12 @@ public class Game extends JComponent {
     public void paintEmpty(Graphics g, int x, int y, int size){
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(y * size, x * size, size, size);
+    }
+    
+    public boolean over(){
+        if(field.getFinishFound()){
+            return true;
+        }
+        return false;
     }
 }
