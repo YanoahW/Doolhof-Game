@@ -45,19 +45,19 @@ public class Game extends JComponent {
         try{
             for(int x = 0; x < rows; x++){
                 for(int y = 0; y < columns; y++){
-                    if(tiles[x][y].getItem() instanceof Wall){
+                    Tile tile = tiles[x][y];
+                    if(tile.isWall()){
                         paintWall(g, x, y, size);
-                    } else if(tiles[x][y].getItem() instanceof Key){
-                        paintKey(g, ((Key) tiles[x][y].getItem()), x, y, size);
-                    } else if(tiles[x][y].getItem() instanceof Barricade){
-                        paintBarricade(g, ((Barricade) tiles[x][y].getItem()), x, y, size);
-                    } else if(tiles[x][y].getItem() instanceof Finish){
+                    } else if(tile.isKey()){
+                        paintKey(g, ((Key) tile.getItem()), x, y, size);
+                    } else if(tile.isBarricade()){
+                        paintBarricade(g, ((Barricade) tile.getItem()), x, y, size);
+                    } else if(tile.isFinish()){
                         paintFinish(g, x, y, size);
                     } else{
                         paintEmpty(g, x, y, size);
                     }
-                g.setColor(Color.BLACK);
-                g.drawRect(y * size, x * size, size, size);
+                paintBorders(g, x, y, size);
                 }
             }
         paintPlayer(g, field.getPlayer(), field.getPlayer().getPosX(), field.getPlayer().getPosY(), size);
@@ -109,10 +109,8 @@ public class Game extends JComponent {
         g.fillRect(y * size, x * size, size, size);
     }
     
-    public boolean over(){
-        if(field.getFinishFound()){
-            return true;
-        }
-        return false;
+    public void paintBorders(Graphics g, int x, int y, int size){
+        g.setColor(Color.BLACK);
+        g.drawRect(y * size, x * size, size, size);
     }
 }

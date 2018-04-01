@@ -40,6 +40,13 @@ public class Player{
         this.key = key;
     }
     
+    public boolean hasKey(){
+        if(!(key == null)){
+            return true;
+        }
+        return false;
+    }
+    
     public void move(int x, int y){
         if(!field.checkFinish((posX), (posY))){
             if(!field.checkCollision((posX + x), (posY + y))){
@@ -47,6 +54,7 @@ public class Player{
             posY += y;
             }
         }
+        field.handleCollision((posX), (posY));
     }
 }
     

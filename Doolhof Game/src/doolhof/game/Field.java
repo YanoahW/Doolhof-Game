@@ -3,6 +3,7 @@ package doolhof.game;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -17,7 +18,6 @@ public class Field {
     private int rows;
     private int columns;
     private int cellsize;
-    private boolean finishFound;
     
     public Field(int rows, int columns, int cellsize) throws IOException
     {
@@ -26,7 +26,6 @@ public class Field {
         this.gridGame = new Tile[rows][columns];
         this.player = null;
         this.cellsize = cellsize;
-        
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 this.gridGame[i][j] = new Tile(null);
@@ -59,37 +58,43 @@ public class Field {
         return cellsize;
     }
     
-    public boolean getFinishFound(){
-        return finishFound;
-    }
-    
     public boolean checkCollision(int x, int y){
-        if(gridGame[y][x].getItem() instanceof Wall){
+        Tile tile = gridGame[y][x];
+        if(tile.isWall()){
             return true;
-        } else if(gridGame[y][x].getItem() instanceof Key){
-            player.pickUpKey((Key) gridGame[y][x].getItem());
-            this.setFieldItem(y, x, null);
+        } else if(tile.isKey()){
             return false;
-        } else if(gridGame[y][x].getItem() instanceof Barricade){
-            Barricade barricade = (Barricade) gridGame[y][x].getItem();
-            if(player.getKey() != null){
+        } else if(tile.isBarricade()){
+            Barricade barricade = (Barricade) tile.getItem();
+            if(player.hasKey()){
                 if(barricade.checkKey(player.getKey())){
-                    this.setFieldItem(y, x, null);
                     return false;
-                } else{
-                    return true;
                 }
             }
             return true;
         } 
-        else{
-            return false;
-        }
+        return false;
+    }
+    
+    public void handleCollision(int x, int y){
+        Tile tile = gridGame[y][x];
+        if(tile.isKey()){
+        player.pickUpKey((Key) tile.getItem());
+        clearFieldItem(x,y);
+        } else if(tile.isBarricade()){
+            Barricade barricade = (Barricade) tile.getItem();
+            if(player.hasKey()){
+                if(barricade.checkKey(player.getKey())){
+                    clearFieldItem(x,y);
+                } else{
+                    showMessage();
+                }
+            }
+        } 
     }
     
     public boolean checkFinish(int x, int y){
         if(gridGame[y][x].getItem() instanceof Finish){
-            finishFound = true;
             return true;
         }
         return false;
@@ -98,6 +103,11 @@ public class Field {
     public void setFieldItem(int row, int column, Item item){
         this.gridGame[row][column].setItem(item);
     }
+    
+     public void clearFieldItem(int x, int y){
+        gridGame[y][x].setItem(null);
+    }
+    
     
     public void setUpField(String filename) throws IOException{
         BufferedReader bf = new BufferedReader(new FileReader(filename));
@@ -128,5 +138,9 @@ public class Field {
                 }
             }
         }  
+    }
+        
+    public void showMessage(){
+        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
     }
 }
