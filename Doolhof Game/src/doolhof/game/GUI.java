@@ -5,44 +5,42 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
 
 /**
  *
  * @author Remon
  */
-public class GUI {
+public class GUI extends JFrame{
     private Game game;
-    private JFrame frame;
     
     public GUI(Game game){
         this.game = game;
-        frame.setTitle("Doolhof Game");
-        frame.setSize(1000,1000);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        addGamePanel(frame);
+        super.setTitle("Doolhof Game");
+        super.setSize(1000,1200);
+        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super.setLocationRelativeTo(null);
         KeyListener keylistener = new MoveListener();
-        frame.addKeyListener(keylistener);
-        frame.setVisible(true);
+        super.addKeyListener(keylistener);
+        super.setVisible(true);
     }
     
-    public void addGamePanel(JFrame frame){
+    public void addGamePanel(){
         JPanel gamepanel = new JPanel();
         int cellsize = game.getField().getCellSize() + 1;
         int rows = game.getField().getRows();
         int columns = game.getField().getColumns();
         game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
         gamepanel.add(game);
-        frame.add(gamepanel);
+        //addButtons(gamepanel);
+        add(gamepanel);
     }
     
-    public void addEndMessage(JFrame frame){
-        if (game.over()){
-            JLabel message = new JLabel("== YOU WON ==");
-            JOptionPane.showMessageDialog(frame, message);
-            }
+    public void addButtons(JPanel panel){
+        JPanel buttonpanel = new JPanel();
+        JButton reset = new JButton("Reset Game");
+        buttonpanel.add(reset);
+        panel.add(buttonpanel);
     }
     
     class MoveListener implements KeyListener{
@@ -69,8 +67,6 @@ public class GUI {
 
         @Override
         public void keyPressed(KeyEvent e) {
-        }
-
-        
+        }  
     }
 }
