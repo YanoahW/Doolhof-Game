@@ -190,5 +190,4 @@ public class Game extends JComponent {
         g.setColor(Color.BLACK);
         g.drawRect(y * size, x * size, size, size);
     }
-    
 }

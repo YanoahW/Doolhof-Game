@@ -3,7 +3,6 @@ package doolhof.game;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import javax.swing.JOptionPane;
 
 /**
  * 
@@ -87,7 +86,6 @@ public class Field {
                 if(barricade.checkKey(player.getKey())){
                     clearFieldItem(x,y);
                 } else{
-                    showMessage();
                 }
             }
         } 
@@ -138,9 +136,5 @@ public class Field {
                 }
             }
         }
-    }
-        
-    public void showMessage(){
-        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
     }
 }

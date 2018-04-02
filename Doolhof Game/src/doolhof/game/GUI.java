@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,15 +32,7 @@ public class GUI extends JFrame{
         int columns = game.getField().getColumns();
         game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
         gamepanel.add(game);
-        //addButtons(gamepanel);
         add(gamepanel);
-    }
-    
-    public void addButtons(JPanel panel){
-        JPanel buttonpanel = new JPanel();
-        JButton reset = new JButton("Reset Game");
-        buttonpanel.add(reset);
-        panel.add(buttonpanel);
     }
     
     class MoveListener implements KeyListener{
@@ -68,5 +60,9 @@ public class GUI extends JFrame{
         @Override
         public void keyPressed(KeyEvent e) {
         }  
+    }
+    
+    public void showMessage(){
+        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
     }
 }
