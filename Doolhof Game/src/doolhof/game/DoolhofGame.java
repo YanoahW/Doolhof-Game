@@ -6,7 +6,7 @@ import java.io.IOException;
  * 
  * @author Yanoah Wiersma & Remon Turk
  * Groep: 3.6.2
- * Datum: 27
+ * Datum: 278
  * Versie:
  */
 public class DoolhofGame {
