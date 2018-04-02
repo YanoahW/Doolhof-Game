@@ -19,7 +19,7 @@ public class DoolhofGame {
         Player player = field.getPlayer();
         player.setField(game.getField());
         GUI gui = new GUI(game);
-        gui.addGamePanel();
+        gui.setUpGUI();
     }
     
 }

@@ -113,9 +113,9 @@ public class Field {
     
     
     public void setUpField(String filename) throws IOException{
-        BufferedReader bf = new BufferedReader(new FileReader(filename));
+        BufferedReader br = new BufferedReader(new FileReader(filename)); 
         for (int i = 0; i < rows; i++) {
-            String[] nextLine = bf.readLine().split(" ");
+            String[] nextLine = br.readLine().split(" ");
             for (int j = 0; j < columns; j++) {
                 if (nextLine[j].equals("WWWW")) {
                     this.setFieldItem(i, j, new Wall());
@@ -141,12 +141,5 @@ public class Field {
                 }
             }
         }
-    }
-<<<<<<< HEAD
-=======
-        
-    public void showMessage(){
-        JOptionPane.showMessageDialog(null, "You do not have a key with you that has the same value as the barricade you are trying to unlock.");
-    }
->>>>>>> ae99c5efd0f2ae3c32f611a8a84352cb10f91dd3
+    } 
 }

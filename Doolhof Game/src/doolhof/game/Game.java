@@ -50,6 +50,12 @@ public class Game extends JComponent {
     public void updateField(){
         repaint();
     }
+    
+    public void resetGame(String filename) throws IOException{
+        field.setUpField(filename);
+        repaint();
+    }
+    
     /**
      * Paints a field using the paint methods that we made for every specific Item
      * @param g has to be given in every paint method
@@ -189,9 +195,5 @@ public class Game extends JComponent {
     public void paintBorders(Graphics g, int x, int y, int size){
         g.setColor(Color.BLACK);
         g.drawRect(y * size, x * size, size, size);
-<<<<<<< HEAD
     }
-=======
-    } 
->>>>>>> ae99c5efd0f2ae3c32f611a8a84352cb10f91dd3
 }
