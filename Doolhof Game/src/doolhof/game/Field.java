@@ -137,7 +137,7 @@ public class Field {
                     this.setPlayer(player);
                 }
             }
-        }  
+        }
     }
         
     public void showMessage(){
