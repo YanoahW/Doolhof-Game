@@ -1,5 +1,7 @@
 package doolhof.game;
 
+import javax.swing.JOptionPane;
+
 /**
  * Class that generates a Player, handles the moves the player makes and checks whether the player has a key or not
  * @author Yanoah Wiersma & Remon Turk
@@ -84,7 +86,7 @@ public class Player{
             posX += x;
             posY += y;
             }
-        }
+        } 
         field.handleCollision((posX), (posY));
     }
 }
