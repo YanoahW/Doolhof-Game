@@ -93,11 +93,16 @@ public class Field {
         } 
     }
     
+    public boolean checkBarricade(int x, int y){
+        return gridGame[y][x].getItem() instanceof Barricade;
+    }
+    
     public boolean checkFinish(int x, int y){
-        if(gridGame[y][x].getItem() instanceof Finish){
-            return true;
-        }
-        return false;
+        return gridGame[y][x].getItem() instanceof Finish;
+    }
+    
+    public boolean finishReached(){
+        return (checkFinish(player.getPosX(), player.getPosY()));
     }
     
     public void setFieldItem(int row, int column, Item item){
@@ -141,6 +146,6 @@ public class Field {
     }
         
     public void showMessage(){
-        JOptionPane.showMessageDialog(null, "A basic JOptionPane message dialog");
+        JOptionPane.showMessageDialog(null, "You do not have a key with you that has the same value as the barricade you are trying to unlock.");
     }
 }

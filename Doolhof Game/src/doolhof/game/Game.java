@@ -189,6 +189,5 @@ public class Game extends JComponent {
     public void paintBorders(Graphics g, int x, int y, int size){
         g.setColor(Color.BLACK);
         g.drawRect(y * size, x * size, size, size);
-    }
-    
+    } 
 }

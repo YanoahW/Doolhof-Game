@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,15 +50,29 @@ public class GUI extends JFrame{
             if(e.getKeyCode()== KeyEvent.VK_RIGHT && game.getField().getPlayer().getPosX() < game.getField().getColumns() - 1){
             game.getField().getPlayer().move(1,0);
             game.updateField();
+            if(game.getField().finishReached()){
+                showFinishMessage();
+            } else if(game.getField().checkBarricade(game.getField().getPlayer().getPosX() +1, game.getField().getPlayer().getPosY() +0)){
+                showFinishMessage();
+            }
            } else if(e.getKeyCode()== KeyEvent.VK_LEFT && game.getField().getPlayer().getPosX() > 0){
             game.getField().getPlayer().move(-1,0);
             game.updateField();
+            if(game.getField().finishReached()){
+                showFinishMessage();
+            }
            } else if(e.getKeyCode()== KeyEvent.VK_DOWN && game.getField().getPlayer().getPosY() < game.getField().getRows() - 1){
             game.getField().getPlayer().move(0,1);
             game.updateField();
+            if(game.getField().finishReached()){
+                showFinishMessage();
+            }
            } else if(e.getKeyCode()== KeyEvent.VK_UP  && game.getField().getPlayer().getPosY() > 0){
             game.getField().getPlayer().move(0,-1);
             game.updateField();
+            if(game.getField().finishReached()){
+                showFinishMessage();
+            }
            }
         }
         
@@ -68,5 +83,9 @@ public class GUI extends JFrame{
         @Override
         public void keyPressed(KeyEvent e) {
         }  
+        
+    }
+        public void showFinishMessage(){
+        JOptionPane.showMessageDialog(null, "You won!");
     }
 }
