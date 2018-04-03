@@ -6,12 +6,11 @@ import java.io.IOException;
  * 
  * @author Yanoah Wiersma & Remon Turk
  * Groep: 3.6.2
- * Datum: 278
+ * Datum: 
  * Versie:
  */
 public class DoolhofGame {
-    public static void main (String[] args) throws IOException
-    {
+    public static void main (String[] args) throws IOException {
         Game game = new Game();
         Field field = new Field(10,10,90);
         field.setUpField("src/doolhof/game/data/standardField.txt");
@@ -19,7 +18,6 @@ public class DoolhofGame {
         Player player = field.getPlayer();
         player.setField(game.getField());
         GUI gui = new GUI(game);
-        gui.setUpGUI();
+        gui.setVisible(true);
     }
-    
 }
