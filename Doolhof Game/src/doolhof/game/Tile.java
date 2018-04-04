@@ -1,11 +1,11 @@
 package doolhof.game;
 
 /**
- * 
+ * Class that generates a Tile using one of the items and also checks what item is on a tile
  * @author Yanoah Wiersma & Remon Turk
- * Groep: 3.6.2
- * Datum:
- * Versie:
+ * Group: 3.6.2
+ * Date: 21-03-2018 t/m 02-04-2018
+ * Version: 1.0
  */
 public class Tile {
     private Item item;

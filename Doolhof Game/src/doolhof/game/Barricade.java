@@ -1,11 +1,11 @@
 package doolhof.game;
 
 /**
- * 
+ * Class that generates a Barricade
  * @author Yanoah Wiersma & Remon Turk
- * Groep: 3.6.2
- * Datum:
- * Versie:
+ * Group: 3.6.2
+ * Date: 21-03-2018 t/m 02-04-2018
+ * Version: 1.0
  */
 public class Barricade extends Item {
     private int lock;
@@ -23,12 +23,7 @@ public class Barricade extends Item {
     }
     
     public boolean checkKey(Key key){
-        if(this.lock == key.getPincode()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return this.lock == key.getPincode();
     }
     
 }

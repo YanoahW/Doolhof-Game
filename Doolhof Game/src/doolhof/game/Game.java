@@ -9,11 +9,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
 /**
- * Class that generates a game and also paints the field
+ * Class that generates a Game and also paints the field
  * @author Yanoah Wiersma & Remon Turk
- * Groep: 3.6.2
- * Datum: 21-03-2018 t/m 02-04-2018
- * Versie: 1.0
+ * Group: 3.6.2
+ * Date: 21-03-2018 t/m 02-04-2018
+ * Version: 1.0
  */
 public class Game extends JComponent {
     private Field field;

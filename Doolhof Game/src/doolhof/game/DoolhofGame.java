@@ -3,11 +3,11 @@ package doolhof.game;
 import java.io.IOException;
 
 /**
- * 
+ * Main method that executes all the necessary things
  * @author Yanoah Wiersma & Remon Turk
- * Groep: 3.6.2
- * Datum: 
- * Versie:
+ * Group: 3.6.2
+ * Date: 21-03-2018 t/m 02-04-2018
+ * Version: 1.0
  */
 public class DoolhofGame {
     public static void main (String[] args) throws IOException {

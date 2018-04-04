@@ -5,11 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * 
+ * Class that generates a Field, sets up a field and handles the collision between the player and the items
  * @author Yanoah Wiersma & Remon Turk
- * Groep: 3.6.2
- * Datum:
- * Versie:
+ * Group: 3.6.2
+ * Date: 21-03-2018 t/m 02-04-2018
+ * Version: 1.0
  */
 public class Field {
     private Player player;
