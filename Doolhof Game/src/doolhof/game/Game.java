@@ -51,6 +51,11 @@ public class Game extends JComponent {
         repaint();
     }
     
+    /**
+     * resest the game, the setUpField method is being called which initializes the field again, after that the game is repainted.
+     * @param filename file that contains the startlocations of all objects
+     * @throws IOException when the file cannot be found
+     */
     public void resetGame(String filename) throws IOException{
         field.setUpField(filename);
         repaint();
