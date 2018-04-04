@@ -58,6 +58,7 @@ public class Game extends JComponent {
      */
     public void resetGame(String filename) throws IOException{
         field.setUpField(filename);
+        field.getPlayer().setField(field);
         repaint();
     }
     

@@ -1,14 +1,15 @@
 package doolhof.game;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-import javax.swing.JButton;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,48 +18,51 @@ import javax.swing.JOptionPane;
  */
 public class GUI extends JFrame{
     private Game game;
-    private JPanel gamePanel;
-    private JPanel buttonPanel;
-    private KeyListener keylistener;
+    private final int FRAME_WIDTH = 1050;
+    private final int FRAME_HEIGHT = 1080;
     
     public GUI(Game game){
         this.game = game;
         super.setTitle("Doolhof Game");
-        super.setSize(1200,1000);
+        super.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setLocationRelativeTo(null);
-        this.gamePanel = new JPanel();
-        this.buttonPanel = new JPanel();
-        this.keylistener = new MoveListener();
-        this.addKeyListener(keylistener);
-        this.setUpGUI();
-        this.addResetButton();
+        this.createPanels();
+        KeyListener keylistener = new MoveListener();
+        addKeyListener(keylistener);
+        setVisible(true);
     }
     
-    public void setUpGUI(){
+    public void createPanels(){
+        JPanel gamePanel = createGamePanel();
+        JPanel instructionPanel = createInstructionPanel();
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.add(instructionPanel);
+        mainPanel.add(gamePanel);
+        this.add(mainPanel);
+    }
+    
+    public JPanel createGamePanel(){
+        JPanel panel = new JPanel();
         int cellsize = game.getField().getCellSize() + 1;
         int rows = game.getField().getRows();
         int columns = game.getField().getColumns();
         game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
-        gamePanel.add(game);
-        super.add(gamePanel);
-        super.setVisible(true);
+        panel.add(game);
+        return panel;
     }
     
-    public void addResetButton(){
-        JButton reset = new JButton("Reset Level");
-        reset.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                try {
-                    game.resetGame("src/doolhof/game/data/standardField.txt");
-                } catch (IOException ex) {
-                    System.out.println("File not found");
-                }
-            }
-        });
-        buttonPanel.add(reset);
-        gamePanel.add(buttonPanel);
+    public JPanel createInstructionPanel() {
+        JPanel panel = new JPanel();
+        JLabel instruction = new JLabel("Use the arrow keys to move and type 'r' if you want to reset this level.");
+        JLabel motivation = new JLabel("GOOD LUCK!");
+        Font font = new Font("Verdana", Font.BOLD | Font.ITALIC, 23);
+        instruction.setFont(font);
+        motivation.setFont(font);
+        panel.add(instruction);
+        panel.add(motivation, BorderLayout.SOUTH);
+        return panel;
     }
     
     public void showFinishMessage(){
@@ -68,7 +72,7 @@ public class GUI extends JFrame{
     public void showBarricadeMessage(){
         JOptionPane.showMessageDialog(null, "You don't have the right key, keep looking!");
     } 
-    
+
     class MoveListener implements KeyListener{
         @Override
         public void keyReleased(KeyEvent e) {
@@ -111,6 +115,12 @@ public class GUI extends JFrame{
                 }
                 if(game.getField().checkBarricade(playerPosX, playerPosY - 1)){
                     showBarricadeMessage();
+                }
+            } else if(e.getKeyCode() == KeyEvent.VK_R){
+                try {
+                    game.resetGame("src/doolhof/game/data/standardField.txt");
+                } catch (IOException ex) {
+                   System.out.print("File not found");
                 }
             }
         }

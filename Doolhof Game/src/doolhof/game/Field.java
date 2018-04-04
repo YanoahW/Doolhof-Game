@@ -111,7 +111,6 @@ public class Field {
         gridGame[y][x].setItem(null);
     }
     
-    
     public void setUpField(String filename) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(filename)); 
         for (int i = 0; i < rows; i++) {
