@@ -19,6 +19,7 @@ public class GUI extends JFrame{
     private Game game;
     private JPanel gamePanel;
     private JPanel buttonPanel;
+    private KeyListener keylistener;
     
     public GUI(Game game){
         this.game = game;
@@ -26,12 +27,12 @@ public class GUI extends JFrame{
         super.setSize(1200,1000);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setLocationRelativeTo(null);
-        KeyListener keyListener = new MoveListener();
-        keyListener = new MoveListener();
-        addKeyListener(keyListener);
-        gamePanel = new JPanel();
-        buttonPanel = new JPanel();
-        super.setVisible(true);
+        this.gamePanel = new JPanel();
+        this.buttonPanel = new JPanel();
+        this.keylistener = new MoveListener();
+        this.addKeyListener(keylistener);
+        this.setUpGUI();
+        this.addResetButton();
     }
     
     public void setUpGUI(){
@@ -40,13 +41,12 @@ public class GUI extends JFrame{
         int columns = game.getField().getColumns();
         game.setPreferredSize(new Dimension(rows * cellsize, columns * cellsize));
         gamePanel.add(game);
-        addResetButton();
-        add(gamePanel);
+        super.add(gamePanel);
         super.setVisible(true);
     }
     
     public void addResetButton(){
-        JButton reset = new JButton("Reset Game");
+        JButton reset = new JButton("Reset Level");
         reset.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -62,7 +62,7 @@ public class GUI extends JFrame{
     }
     
     public void showFinishMessage(){
-        JOptionPane.showMessageDialog(null, "YOU WON THE GAME!");
+        JOptionPane.showMessageDialog(null, "LEVEL COMPLETED!");
     }
     
     public void showBarricadeMessage(){

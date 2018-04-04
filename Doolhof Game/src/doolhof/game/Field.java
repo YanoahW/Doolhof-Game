@@ -92,11 +92,11 @@ public class Field {
     }
     
     public boolean checkBarricade(int x, int y){
-        return gridGame[y][x].getItem() instanceof Barricade;
+        return gridGame[y][x].isBarricade();
     }
     
     public boolean checkFinish(int x, int y){
-        return gridGame[y][x].getItem() instanceof Finish;
+        return gridGame[y][x].isFinish();
     }
     
     public boolean finishReached(){
