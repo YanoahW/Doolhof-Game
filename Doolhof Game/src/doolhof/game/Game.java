@@ -57,9 +57,9 @@ public class Game extends JComponent {
      * @throws IOException when the file cannot be found
      */
     public void resetGame(String filename) throws IOException{
-        field.setUpField(filename);
-        field.getPlayer().setField(field);
-        repaint();
+        field.setUpField(filename); //Initializing the field again
+        field.getPlayer().setField(field); //Setting the field to player again
+        repaint(); //Repainting the game
     }
     
     /**
@@ -76,22 +76,22 @@ public class Game extends JComponent {
                 for(int y = 0; y < columns; y++){
                     Tile tile = tiles[x][y];
                     if(tile.isWall()){
-                        paintWall(g, x, y, size);
+                        paintWall(g, x, y, size); //When the item on the tile is a Wall, call the paintWall method
                     } else if(tile.isKey()){
-                        paintKey(g, ((Key) tile.getItem()), x, y, size);
+                        paintKey(g, ((Key) tile.getItem()), x, y, size); //When the item on the tile is a Key, call the paintKey method
                     } else if(tile.isBarricade()){
-                        paintBarricade(g, ((Barricade) tile.getItem()), x, y, size);
+                        paintBarricade(g, ((Barricade) tile.getItem()), x, y, size); //When the item on the tile is a Barricade, call the paintBarricade method
                     } else if(tile.isFinish()){
-                        paintFinish(g, x, y, size);
+                        paintFinish(g, x, y, size); //When the item on the tile is a Finish, call the paintFinish method
                     } else{
-                        paintEmpty(g, x, y, size);
+                        paintEmpty(g, x, y, size); //When there is no item on the tile, call the paintEmpty method
                     }
-                paintBorders(g, x, y, size);
+                paintBorders(g, x, y, size); //When all items are painted, paint borders around the items with the paintBorders method
                 }
             }
-        paintPlayer(g, field.getPlayer(), field.getPlayer().getPosX(), field.getPlayer().getPosY(), size);
+        paintPlayer(g, field.getPlayer(), field.getPlayer().getPosX(), field.getPlayer().getPosY(), size); //When the entire array is painted, draw the player on top of it with the paintPlayer method
         } catch(IOException e){
-            System.out.println("File not found");
+            System.out.println("File not found"); //When one of the paint methods cannot be executed, throw a IOException
         }
     }
     
@@ -114,7 +114,7 @@ public class Game extends JComponent {
      */
     public void paintWall(Graphics g, int x, int y, int size) throws IOException{
         Image image;
-        image = ImageIO.read(new File("src/doolhof/game/data/Wall.png"));
+        image = ImageIO.read(new File("src/doolhof/game/data/Wall.png")); //Get input from a image file
         g.drawImage(image, (y * size),(x * size), null);
     }
    
@@ -129,7 +129,7 @@ public class Game extends JComponent {
      */
     public void paintKey(Graphics g, Key key, int x, int y, int size) throws IOException{
         Image image;
-        String pincode = "src/doolhof/game/data/K" + Integer.toString(key.getPincode()) + ".png";
+        String pincode = "src/doolhof/game/data/K" + Integer.toString(key.getPincode()) + ".png"; //Get input from a image file
         image = ImageIO.read(new File(pincode));
         g.drawImage(image, (y * size),(x * size), null);
     }
@@ -145,7 +145,7 @@ public class Game extends JComponent {
      */
     public void paintBarricade(Graphics g, Barricade barricade, int x, int y, int size) throws IOException{
         Image image;
-        String lock = "src/doolhof/game/data/B" + Integer.toString(barricade.getLock()) + ".png";
+        String lock = "src/doolhof/game/data/B" + Integer.toString(barricade.getLock()) + ".png"; //Get input from a image file
         image = ImageIO.read(new File(lock));
         g.drawImage(image, (y * size),(x * size), null);
     }
@@ -185,10 +185,10 @@ public class Game extends JComponent {
      */
     public void paintPlayer(Graphics g, Player player, int x, int y, int size) throws IOException{
         Image image;
-        image = ImageIO.read(new File("src/doolhof/game/data/Player.png"));
+        image = ImageIO.read(new File("src/doolhof/game/data/Player.png")); //Get input from a image file
         g.drawImage(image, (x * size),(y * size), null);
         g.setColor(Color.BLACK);
-        g.drawRect(field.getPlayer().getPosX() * size, field.getPlayer().getPosY() * size, size, size);
+        g.drawRect(field.getPlayer().getPosX() * size, field.getPlayer().getPosY() * size, size, size); //Draw borders again because player is not part of the Tiles array
     }
     
     /**

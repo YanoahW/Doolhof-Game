@@ -102,6 +102,6 @@ public class Player{
             posY += y;
             }
         } 
-        field.handleCollision((posX), (posY));
+        field.handleCollision((posX), (posY)); //Let the player picks up keys and destroy barricades with the handleCollision method from field
     }
 }
