@@ -43,27 +43,11 @@ public class Player{
     }
     
     /**
-     * Sets the y posistion of the player on the field
-     * @param x The y position where you want to place the player
-     */
-    public void setPosX(int x) {
-        posX = x;
-    }
-    
-    /**
      * Gets the current y position of the player
      * @return returns the current y position of the player
      */
     public int getPosY(){
         return posY;
-    }
-    
-    /**
-     * Sets the X posistion of the player on the field
-     * @param y The y position where you want to place the player
-     */
-    public void setPosY(int y) {
-        posY = y;
     }
     
     /**

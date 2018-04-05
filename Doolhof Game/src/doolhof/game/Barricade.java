@@ -27,14 +27,6 @@ public class Barricade extends Item {
     }
     
     /**
-     * Sets the lock of the Barricade
-     * @param lock Given lock which has to be on the barricade
-     */
-    public void setLock(int lock){
-        this.lock = lock;
-    }
-    
-    /**
      * Method that checks if a key fits on this barricade or not
      * @param key The key which has to be compared with the barricade
      * @return Returns a boolean true, when the key fits and false when it doesn't

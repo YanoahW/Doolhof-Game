@@ -25,12 +25,4 @@ public class Key extends Item {
     public int getPincode(){
         return this.pincode;
     }
-    
-    /**
-     * Sets the pincode to a given value
-     * @param pincode Pincode that has to be set on the key
-     */
-    public void setPincode(int pincode){
-        this.pincode = pincode;
-    }
 }
