@@ -19,7 +19,7 @@ public class Game extends JComponent {
     private Field field;
     
     /**
-     * constructs a game object which automatically sets the field to 0;
+     * constructs a game object which automatically sets the field to a null object;
      */
     public Game()
     {

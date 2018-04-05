@@ -15,8 +15,9 @@ public class Player{
     
     /**
      * constructs a player with a start position on the field
-     * @param posX the x position where the player starts, which is the horizontal axis
-     * @param posY the y position where the player starts, which is the vertical axis
+     * @param posX The x position where the player starts, which is the horizontal axis
+     * @param posY The y position where the player starts, which is the vertical axis
+     * The initial field of the player is set to a null object
      */
     public Player(int posX, int posY)
     {
@@ -26,15 +27,15 @@ public class Player{
     }
     
     /**
-     * accessor method that gets the key
-     * @return returns a key object
+     * Gets the current key of the player
+     * @return Returns a key object
      */
     public Key getKey(){
         return key;
     }
     
     /**
-     * gets the current x position of the player
+     * Gets the current x position of the player
      * @return returns the current x position
      */
     public int getPosX(){
@@ -42,7 +43,15 @@ public class Player{
     }
     
     /**
-     * gets the current y position of the player
+     * Sets the y posistion of the player on the field
+     * @param x The y position where you want to place the player
+     */
+    public void setPosX(int x) {
+        posX = x;
+    }
+    
+    /**
+     * Gets the current y position of the player
      * @return returns the current y position of the player
      */
     public int getPosY(){
@@ -50,15 +59,23 @@ public class Player{
     }
     
     /**
-     * sets the field on which the player has to move
-     * @param field the field where the player has to move
+     * Sets the X posistion of the player on the field
+     * @param y The y position where you want to place the player
+     */
+    public void setPosY(int y) {
+        posY = y;
+    }
+    
+    /**
+     * Sets the field on which the player has to move
+     * @param field The field where the player has to move
      */
     public void setField(Field field){
         this.field = field;
     }
     
     /**
-     * a method that picks up a key
+     * Method that picks up a key
      * @param key an instance of the class Key
      */
     public void pickUpKey(Key key){
@@ -66,8 +83,8 @@ public class Player{
     }
     
     /**
-     * a method that checks whether the player has a key or not
-     * @return returns a boolean, true when the player has a key and false when the player does not have a key
+     * Method that checks whether the player has a key or not
+     * @return Returns a boolean, true when the player has a key and false when the player does not have a key
      */
     public boolean hasKey(){
         return !(key == null);
@@ -75,8 +92,8 @@ public class Player{
     
     /**
      * method that makes it able for the player to make moves
-     * @param x the x position that has to be changed after a key is pressed
-     * @param y the y position that has to be changed after a key is pressed
+     * @param x The x position that has to be changed after a key is pressed
+     * @param y The y position that has to be changed after a key is pressed
      */
     public void move(int x, int y){
         if(!field.checkFinish((posX), (posY))){ //player is able to move when the finish isnt reached yet
@@ -87,15 +104,4 @@ public class Player{
         } 
         field.handleCollision((posX), (posY));
     }
-
-    public void setPosX(int x) {
-        posX = x;
-    }
-    
-    public void setPosY(int y) {
-        posY = y;
-    }
 }
-    
-    
-

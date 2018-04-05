@@ -10,6 +10,11 @@ import java.io.IOException;
  * Version: 1.0
  */
 public class DoolhofGame {
+    /**
+     * Main mathod to run the game
+     * @param args
+     * @throws IOException when the level file is not found, an exception will be thrown
+     */
     public static void main (String[] args) throws IOException {
         Game game = new Game();
         Field field = new Field(10,10,90);
