@@ -96,19 +96,19 @@ public class Field {
     public boolean checkCollision(int x, int y){
         Tile tile = gridGame[y][x];
         if(tile.isWall()){
-            return true;
+            return true; //Return true when colliding with a Wall object
         } else if(tile.isKey()){
-            return false;
+            return false; //Return false when colliding with a Wall object
         } else if(tile.isBarricade()){
             Barricade barricade = (Barricade) tile.getItem();
             if(player.hasKey()){
                 if(barricade.checkKey(player.getKey())){
-                    return false;
+                    return false; //Return false when colliding with a Barricade object, and the player having the right key, which means he can move
                 }
             }
-            return true;
+            return true; //Return true when the player doesn't have the right key, and thus cannot move
         } 
-        return false;
+        return false; //When a field has no item, the player can move, so false is returned
     }
     
     /**

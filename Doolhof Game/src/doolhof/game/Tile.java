@@ -10,43 +10,59 @@ package doolhof.game;
 public class Tile {
     private Item item;
     
+    /**
+     * Constructs a tile object with a given item
+     * @param item The item that has to be placed on a tile
+     */
     public Tile(Item item){
         this.item = item;
     }
     
+    /**
+     * Gets the current item placed on the tile
+     * @return Returns an object from the corresponding subclass
+     */
     public Item getItem(){
         return item;
     }
     
+    /**
+     * Sets an item onto a tile
+     * @param item The item that has to be placed on a tile
+     */
     public void setItem(Item item) {
         this.item = item;
     } 
     
+    /**
+     * Checks if there is a Barricade item located on a tile
+     * @return Returns a boolean true when there is a barricade, else false is returned
+     */
     public boolean isBarricade(){
-        if (item instanceof Barricade){
-            return true;
-        }
-        return false;
+        return item instanceof Barricade;
     }
     
+    /**
+     * Checks if there is a Key item located on a tile
+     * @return Returns a boolean true when there is a key, else false is returned
+     */
     public boolean isKey(){
-        if (item instanceof Key){
-            return true;
-        }
-        return false;
+        return item instanceof Key;
     }
     
+    /**
+     * Checks if there is a Wall item located on a tile
+     * @return Returns a boolean true when there is a wall, else false is returned
+     */
     public boolean isWall(){
-        if (item instanceof Wall){
-            return true;
-        } 
-        return false;
+        return item instanceof Wall;
     }
     
+    /**
+     * Checks if there is a Finish item located on a tile
+     * @return Returns a boolean true when there is a finish, else false is returned
+     */
     public boolean isFinish(){
-        if (item instanceof Finish){
-            return true;
-        } 
-        return false;
+        return item instanceof Finish;
     }
 }
