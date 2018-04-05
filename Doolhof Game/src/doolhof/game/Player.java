@@ -24,6 +24,7 @@ public class Player{
         this.posX = posX;
         this.posY = posY;
         this.field = null;
+        this.key = null;
     }
     
     /**
