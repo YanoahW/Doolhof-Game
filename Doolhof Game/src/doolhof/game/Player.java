@@ -82,7 +82,7 @@ public class Player{
      */
     public void move(int x, int y){
         if(!field.checkFinish((posX), (posY))){ //player is able to move when the finish isnt reached yet
-            if(!field.checkCollision((posX + x), (posY + y))){ //player is able to move when there isn't any object blockint it's way
+            if(!field.checkCollision((posX + x), (posY + y))){ //player is able to move when there isn't any object blocking it's way
             posX += x;
             posY += y;
             }

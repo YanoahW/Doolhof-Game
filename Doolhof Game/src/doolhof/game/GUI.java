@@ -83,10 +83,12 @@ public class GUI extends JFrame{
     }
     
     /**
-     * Method that shows a message, when the finish is reached
+     * Method that checks if the player has reached the finish after moving, if it is the case show a message
      */
     public void showFinishMessage(){
+        if(game.getField().finishReached()){
         JOptionPane.showMessageDialog(null, "LEVEL COMPLETED!");
+        }
     }
     
     /**
@@ -112,37 +114,29 @@ public class GUI extends JFrame{
             int fieldColumns = game.getField().getColumns() - 1;
             if(e.getKeyCode()== KeyEvent.VK_RIGHT && playerPosX < fieldColumns){
                 game.getField().getPlayer().move(1,0);
-                game.updateField();
-                if(game.getField().finishReached()){
-                    showFinishMessage(); //Check if the player has reached the finish after moving, if it is the case show a message
-                } 
+                game.updateField(); //Update the game field
+                showFinishMessage(); //Shows a message if the player reached the finish
                 if(game.getField().checkBarricade(playerPosX + 1, playerPosY)){
                     showBarricadeMessage(); //Check if the player collides with a barricade, and doesnt have the right key. When the case show a message
                 }
             } else if(e.getKeyCode()== KeyEvent.VK_LEFT && playerPosX > 0){
                 game.getField().getPlayer().move(-1,0);
-                game.updateField();
-                if(game.getField().finishReached()){
-                    showFinishMessage(); //Check if the player has reached the finish after moving, if it is the case show a message
-                } 
+                game.updateField(); //Update the game field
+                showFinishMessage(); //Shows a message if the player reached the finish
                 if(game.getField().checkBarricade(playerPosX - 1, playerPosY)){
                     showBarricadeMessage(); //Check if the player collides with a barricade, and doesnt have the right key. When the case show a message
                 }
             } else if(e.getKeyCode()== KeyEvent.VK_DOWN && playerPosY < fieldRows){
                 game.getField().getPlayer().move(0,1);
-                game.updateField();
-                if(game.getField().finishReached()){
-                    showFinishMessage(); //Check if the player has reached the finish after moving, if it is the case show a message
-                }
+                game.updateField(); //Update the game field
+                showFinishMessage(); //Shows a message if the player reached the finish
                 if(game.getField().checkBarricade(playerPosX, playerPosY + 1)){
                     showBarricadeMessage(); //Check if the player collides with a barricade, and doesnt have the right key. When the case show a message
                 }
             } else if(e.getKeyCode()== KeyEvent.VK_UP  && playerPosY > 0){
                 game.getField().getPlayer().move(0,-1);
-                game.updateField(); //When up is pressed call the move method from player and the updateField method from field
-                if(game.getField().finishReached()){
-                    showFinishMessage(); //Check if the player has reached the finish after moving, if it is the case show a message
-                }
+                game.updateField(); //Update the game field
+                showFinishMessage(); //Shows a message if the player reached the finish
                 if(game.getField().checkBarricade(playerPosX, playerPosY - 1)){
                     showBarricadeMessage(); //Check if the player collides with a barricade, and doesnt have the right key. When the case show a message
                 }
