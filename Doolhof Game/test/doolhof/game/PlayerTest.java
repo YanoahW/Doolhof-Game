@@ -31,6 +31,9 @@ public class PlayerTest {
         player.setField(field);
     }
 
+    /**
+     * Method to test the pickUpKey method
+     */
     @Test
     public void testPickUpKey() {
         player.pickUpKey(key);
@@ -38,6 +41,9 @@ public class PlayerTest {
         assertEquals(key, result);
     }
 
+    /**
+     * Method to check the hasKey method
+     */
     @Test
     public void testHasKey() {
         Key expected = null;
@@ -48,6 +54,9 @@ public class PlayerTest {
         assertEquals(key, result);
     }
 
+    /**
+     * Method to test the move method for the right direction with the player surrounded by empty fields
+     */
     @Test
     public void testMoveRight() {
         player.move(1, 0);
@@ -59,6 +68,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method for the left direction with the player surrounded by empty fields
+     */
     @Test
     public void testMoveLeft() {
         player.move(-1, 0);
@@ -70,6 +82,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method for the up direction with the player surrounded by empty fields
+     */
     @Test
     public void testMoveUp() {
         player.move(0, -1);
@@ -81,6 +96,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method for the down direction with the player surrounded by empty fields
+     */
     @Test
     public void testMoveDown() {
         player.move(0, 1);
@@ -92,6 +110,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method, which results in a player, first not being able to move, but when he has the right key, he can move
+     */
     @Test
     public void testMoveBarricade(){
         player = new Player(5,5);
@@ -114,6 +135,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method, which lets a player walk over a key
+     */
     @Test
     public void testMoveKey(){
         player = new Player(4,0);
@@ -128,6 +152,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method, which lets the player walk over a Finish
+     */
     @Test
     public void testMoveFinish(){
         player = new Player(9,8);
@@ -142,6 +169,9 @@ public class PlayerTest {
         assertEquals(resultY, expectedY);
     }
     
+    /**
+     * Method to test the move method, which lets a player collide with a wall, and not letting the player move
+     */
     @Test
     public void testMoveWall(){
         player = new Player(0,0);
